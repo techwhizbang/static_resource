@@ -52,13 +52,3 @@ module StaticResource
     end
   end
 end
-
-#def get_page
-#      mocha_setup
-#      response = mock('http response')
-#      file = File.read( RAILS_ROOT + '/spec/fixtures/page.xml' )
-#      response = mock("http response")
-#      response.stubs(:body).returns(file)
-#      ActiveResource::Connection.any_instance.stubs(:request).returns(response)
-#      Page.fetch_by_id( @params[:id])
-#    end
