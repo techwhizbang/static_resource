@@ -1,0 +1,41 @@
+= static_resource
+
+== Description
+
+A plugin that leverages the slick XML parsing into objects of ActiveResource without
+making any network calls by reading XML documents on your local filesystem.
+The XML documents must conform to the same ActiveResource "schema" rules in order to be
+read and digested into objects.
+
+This is great for those who don't want to store data structures that aren't necessarily
+large enough to be worth storing in the database, but not small enough to "hard code"
+elsewhere.
+
+== Installation
+
+  ruby script/plugin install git://github.com/techwhizbang/static_resource.git
+
+== Usage
+
+#Define an XML file somewhere within your stack, and reference it in a subclass of StaticResource
+#like this:
+
+class Country < StaticResource::Base
+  self.static_resource = File.expand_path(File.dirname(__FILE__) + "/country.xml")
+end
+
+#Use the find method to read the XML file
+country = Country.find(:one)
+
+#Use the object just like you would with attributes on an ActiveResource
+states = country.states
+state = states.first
+
+#Or don't subclass at all just use StaticResource::Base in the raw
+
+static_resource = StaticResource::Base.find(:one, :from => Rails.root + "/lib/whatever.xml")
+
+=== Other
+
+Problems, comments, and suggestions all welcome. nick@controlaltcreate.com or visit my blog
+http://techwhizbang.com
