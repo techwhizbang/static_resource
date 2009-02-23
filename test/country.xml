@@ -1,0 +1,20 @@
+<country>
+    <states type="array">
+        <state>
+            <id type="integer">1</id>
+            <name type="string">Illinois</name>
+            <founded type="datetime">1879-11-06 06:15:00</founded>
+            <latitude type="float">50.2345</latitude>
+            <longitude type="float">123.234</longitude>
+            <population type="integer">100000000</population>
+        </state>
+        <state>
+            <id type="integer">2</id>
+            <name type="string">California</name>
+            <founded type="datetime">1862-01-02 06:15:00</founded>
+            <latitude type="float">70.2345</latitude>
+            <longitude type="float">14.234</longitude>
+            <population type="integer">400000000</population>
+        </state>
+    </states>
+</country>
