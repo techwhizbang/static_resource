@@ -21,13 +21,27 @@ module StaticResource
         end
       end
 
-      def find(*args)
-        scope   = args.slice!(0)
-        options = args.slice!(0) || {:from => self.static_resource}
-
-        case scope
-          when :one   then find_one(options)
+      def find(*arguments)
+        scope   = arguments.slice!(0)
+        options = arguments.slice!(0) || {}
+        options = { :from => @static_resource }.merge(options)
+        if scope == :all  
+          resource = find_every(options)
+          if options[:id] && options[:key]
+            resource = resource.detect { |r| r.send(options[:key].to_sym) == options[:id] }
+          end
+        elsif scope == :first
+          resource = find_every(options).first
+        elsif scope == :last
+          resource= find_every(options).last
+        elsif scope == :one
+          resource = find_one(options)
+        else
+          resource = find_single(scope, options)
         end
+ 
+        resource = resource.attributes[options[:id]] if scope != :all && options[:id] 
+        resource
       end
 
       def connection(refresh = false)
