@@ -11,10 +11,10 @@ begin
     s.homepage = "http://github.com/techwhizbang/static_resource"
     s.rubyforge_project = 'static_resource'
     s.authors = ["Nick Zalabak"]
-    s.add_development_dependency "mocha"
+    s.add_development_dependency "mocha", ">= 0.9.8"
     s.files =  FileList["[A-Za-z]*", "{lib,test}/**/*"]
     s.test_files = FileList["test/**/*"]
-    s.add_dependency "activeresource"
+    s.add_dependency "activeresource", ">= 2.3.2"
   end
  
 rescue LoadError

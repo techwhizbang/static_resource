@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{static_resource}
-  s.version = "1.0.0"
+  s.version = "1.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Nick Zalabak"]
@@ -50,15 +50,15 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency(%q<mocha>, [">= 0"])
-      s.add_runtime_dependency(%q<activeresource>, [">= 0"])
+      s.add_development_dependency(%q<mocha>, [">= 0.9.8"])
+      s.add_runtime_dependency(%q<activeresource>, [">= 2.3.2"])
     else
-      s.add_dependency(%q<mocha>, [">= 0"])
-      s.add_dependency(%q<activeresource>, [">= 0"])
+      s.add_dependency(%q<mocha>, [">= 0.9.8"])
+      s.add_dependency(%q<activeresource>, [">= 2.3.2"])
     end
   else
-    s.add_dependency(%q<mocha>, [">= 0"])
-    s.add_dependency(%q<activeresource>, [">= 0"])
+    s.add_dependency(%q<mocha>, [">= 0.9.8"])
+    s.add_dependency(%q<activeresource>, [">= 2.3.2"])
   end
 end
 
